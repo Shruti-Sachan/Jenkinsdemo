@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy your application
-                sh 'cp sampleProject/target/sampleProject-0.0.1-SNAPSHOT.jar ./sampleProject/target'
+                sh 'cp sampleProject/target/sampleProject-0.0.1-SNAPSHOT.jar /sampleProject/src'
             }
         }
     }
