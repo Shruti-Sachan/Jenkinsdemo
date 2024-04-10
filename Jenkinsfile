@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Clean and build the Maven project
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
                 // Run tests
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Deploy') {
@@ -24,7 +24,7 @@ pipeline {
         stage('Clean Up') {
             steps {
                 // Clean up any temporary files or resources
-                sh 'mvn clean'
+                bat 'mvn clean'
             }
         }
     }
