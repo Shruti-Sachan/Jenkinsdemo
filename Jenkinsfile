@@ -1,41 +1,42 @@
 pipeline {
     agent any
-
+    tools {
+        maven "maven_home"
+    }
+    
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your source code from your version control system
-                git 'https://github.com/Shruti-Sachan/Jenkinsdemo.git'
-            }
-        }
         stage('Build') {
             steps {
-                // Build your project using Maven
-                sh 'mvn clean package'
+                // Clean and build the Maven project
+                bat 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
-                // Run your tests
-                sh 'mvn test'
+                // Run tests
+                bat 'mvn test'
             }
         }
-        stage('Deploy') {
+         stage('Deploy') {
             steps {
-                // Deploy your application
-                sh 'cp sampleProject/target/sampleProject-0.0.1-SNAPSHOT.jar ./sampleProject/target'
+                
+                 echo 'Deploying the application...'
+             }
+         }
+        stage('Clean Up') {
+            steps {
+                // Clean up any temporary files or resources
+                bat 'mvn clean'
             }
         }
     }
-
+    
     post {
         success {
-            // If the pipeline execution is successful, you may want to trigger some notifications or cleanup tasks
-            echo 'Pipeline succeeded! You may want to notify the team.'
+            echo 'Pipeline executed successfully!'
         }
         failure {
-            // If the pipeline fails, you may want to send notifications or perform some cleanup tasks
-            echo 'Pipeline failed! You may want to notify the team or rollback any changes.'
+            echo 'Pipeline failed!'
         }
     }
 }
