@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite">
+    <test name="My Test">
+        <classes>
+            <class name="CucumberJavaProject.sampleProject.FirstSeleniumProject"/>
+        </classes>
+    </test>
+</suite>
