@@ -17,12 +17,13 @@ pipeline {
                 bat 'mvn test'
             }
         }
-         stage('Deploy') {
+        stage('Deploy') {
             steps {
-                
-                 echo 'Deploying the application...'
-             }
-         }
+                // Placeholder for deployment steps
+                // Replace this with your deployment script or commands
+                echo 'Deploying the application...'
+            }
+        }
         stage('Clean Up') {
             steps {
                 // Clean up any temporary files or resources
